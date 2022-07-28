@@ -14,7 +14,7 @@ Done via Environment Variables (quarkus prod profile - quarkus.profile=prod):
 
 - Create PostgressDB:
 ```sh
-docker run -d --name order-db \
+docker run -d --name heimerdinger-db \
   -e POSTGRES_USER=develop \
   -e POSTGRES_PASSWORD=develop \
   -e POSTGRES_DB=heimerdinger-db \

@@ -46,5 +46,9 @@ public class Server extends PanacheEntityBase {
     this.version = version;
   }
 
+  public static Server findByHostName(String hostName) {
+    return find("host_name", hostName).firstResult();
+}
+
 
 }
