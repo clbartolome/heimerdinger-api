@@ -33,6 +33,8 @@ public class Update extends PanacheEntityBase {
   @Column(name = "job_link")
   private String jobLink;
 
+  private String categories;
+
   public Update() {
   }
 
@@ -82,6 +84,14 @@ public class Update extends PanacheEntityBase {
 
   public void setServer(Server server) {
     this.server = server;
+  }
+
+  public String getCategories() {
+    return categories;
+  }
+
+  public void setCategories(String categories) {
+    this.categories = categories;
   }
 
 }
