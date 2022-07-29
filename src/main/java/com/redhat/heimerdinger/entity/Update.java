@@ -1,9 +1,14 @@
-package com.redhat.heimerdinger.entities;
+package com.redhat.heimerdinger.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
@@ -19,9 +24,11 @@ public class Update extends PanacheEntityBase {
   private String tittle;
 
   private String status;
-  
-  @Column(name = "host_name")
-  private String hostName;
+
+  @JsonBackReference
+  @ManyToOne(targetEntity = Server.class, fetch = FetchType.LAZY)
+  @JoinColumn(name = "server_host_name", referencedColumnName = "host_name", updatable = true, insertable = true)
+  private Server server;
 
   @Column(name = "job_link")
   private String jobLink;
@@ -69,12 +76,12 @@ public class Update extends PanacheEntityBase {
     this.jobLink = jobLink;
   }
 
-  public String getHostName() {
-    return hostName;
+  public Server getServer() {
+    return server;
   }
 
-  public void setHostName(String hostName) {
-    this.hostName = hostName;
+  public void setServer(Server server) {
+    this.server = server;
   }
 
 }

@@ -20,7 +20,8 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
-import com.redhat.heimerdinger.entities.Server;
+import com.redhat.heimerdinger.entity.Server;
+import com.redhat.heimerdinger.entity.Update;
 
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -41,6 +42,17 @@ public class ServerResource {
           return Response.noContent().build();
         }
         return Response.ok(servers).build();
+    }
+    
+    @GET
+    @Path("updates")
+    public Response getUpdates() {
+
+        List<Server> updates = Update.listAll();
+        if (updates.isEmpty()) {
+          return Response.noContent().build();
+        }
+        return Response.ok(updates).build();
     }
 
     @GET

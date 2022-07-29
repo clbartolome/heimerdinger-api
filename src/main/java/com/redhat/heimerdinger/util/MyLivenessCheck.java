@@ -1,4 +1,4 @@
-package com.redhat.heimerdinger.utils;
+package com.redhat.heimerdinger.util;
 
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;

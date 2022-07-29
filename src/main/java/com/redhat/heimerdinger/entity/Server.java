@@ -1,4 +1,4 @@
-package com.redhat.heimerdinger.entities;
+package com.redhat.heimerdinger.entity;
 
 
 import java.util.Set;
@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
@@ -26,7 +28,8 @@ public class Server extends PanacheEntityBase {
 
   private String version;
   
-  @OneToMany(mappedBy = "hostName", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  @JsonManagedReference
+  @OneToMany(mappedBy = "server", cascade = CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval=true)
   private Set<Update> updates;
 
   public Server() {
