@@ -43,17 +43,6 @@ public class ServerResource {
         }
         return Response.ok(servers).build();
     }
-    
-    @GET
-    @Path("updates")
-    public Response getUpdates() {
-
-        List<Server> updates = Update.listAll();
-        if (updates.isEmpty()) {
-          return Response.noContent().build();
-        }
-        return Response.ok(updates).build();
-    }
 
     @GET
     @Path("{hostName}")
