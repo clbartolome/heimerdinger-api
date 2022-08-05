@@ -25,6 +25,8 @@ docker run -d --name heimerdinger-db \
 - Run Application in development mode:
 ```shell script
 mvn compile quarkus:dev
+
+# login -> user:pass
 ```
 
 - Add some data and test:
