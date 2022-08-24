@@ -22,7 +22,7 @@ public class CORSFilter implements ContainerResponseFilter {
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
         LOGGER.info("Modifing response with CORSFIlter: " + responseContext.getHeaders());
         MultivaluedMap<String, Object> headers = responseContext.getHeaders();
-        headers.putSingle("Access-Control-Allow-Origin", "*");
+        // headers.putSingle("Access-Control-Allow-Origin", "*");
         LOGGER.info("Modified to add the required header: " + responseContext.getHeaders());
     }
 }
